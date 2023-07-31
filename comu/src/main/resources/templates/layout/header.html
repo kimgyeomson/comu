@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="header">
+
+  <header>
+    <div class="header-container">
+      <div class="headerLogo">
+        <a th:href="@{/main}">
+          <img th:src="@{/img/logo.png}" alt="headerLogo" width="207" height="47">
+        </a>
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a th:href="@{/recruit_board}">구인글 게시판</a></li>
+          <li><a th:href="@{/portfolio_board}">포트폴리오</a></li>
+          <li><a th:href="@{/Qna_question}">고객센터</a></li>
+        </ul>
+      </nav>
+
+      <div th:if="${session.email == null}" class="account">
+        <a th:href="@{/signup_options}">회원가입</a>
+        <a th:href="@{/login}">로그인</a>
+      </div>
+
+      <div th:if="${session.email != null}" class = "accountlogin">
+        <a href="#"><span th:text="${session.email}"></span>님</a>
+        <a th:href="@{/myPage}">마이 페이지</a>
+        <form th:action = "@{/logout}" method = "POST">
+          <input type = "submit" class = "logoutButton" value = "로그아웃"/>
+        </form>
+      </div>
+    </div>
+  </header>
+</th:block>
+</html>

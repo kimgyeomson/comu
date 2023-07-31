@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8">
+  <title>아이디 찾기</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/find.css}">
+  <style th:inline="css">
+        .logo {
+            background-image: url('/image/comu.png');
+            background-size: 155px 100px;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body class="whole_white">
+<div id="wrap" class="wrap">
+  <div class="u_skip"><a href="#container">본문 바로가기</a></div>
+
+
+  <header id="header" role="banner" class="header">
+    <div class="header_logo">
+      <a href="javascript:;" onclick="goNaver();">
+<!--        <img width="155px 90px;" th:src="@{/image/comu.png}"/>-->
+        <h1 class="logo" style="height: 100px"><span class="blind">네이버</span></h1>
+      </a>
+    </div>
+  </header>
+  <div id="container" class="container">
+    <div class="content">
+      <div class="find_wrap">
+        <div class="find_inner">
+          <div class="title_wrap">
+            <h2 class="title">찾으려는 아이디를 선택해주세요.</h2>
+          </div>
+          <ul class="find_id_list">
+            <li>
+              <button type="button" class="id_item" onclick="findId();">
+                <span class="icon_id"><span class="blind">아이디 찾기</span></span>
+                <div class="id_text">아이디 찾기</div>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="id_item" onclick="findPassword;">
+                <span class="icon_login_only"><span class="blind">비밀번호 찾기</span></span>
+                <div class="id_text">비밀번호 찾기</div>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+        function findId() {
+          document.location.href = "/findId";
+        }
+
+        function goNaver() {
+                document.location.href = "https://www.naver.com";
+        }
+    </script>
+</body>
+</html>

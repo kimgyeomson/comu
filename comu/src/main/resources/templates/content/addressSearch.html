@@ -1,0 +1,137 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/addressSearch.css}">
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+  // Get the input element by its ID
+  const inputElement = document.getElementById('myInput');
+
+  // Set focus on the input element
+  inputElement.focus();
+});
+
+        function getAddr(){
+            // 적용예 (api 호출 전에 검색어 체크)
+            if (!checkSearchedWord(document.form.keyword)) {
+                return ;
+            }
+
+            $.ajax({
+                url :"https://business.juso.go.kr/addrlink/addrLinkApiJsonp.do",
+                type:"get",
+                data:$("#form").serialize(),
+                dataType:"jsonp",
+                crossDomain:true,
+                success:function(jsonStr){
+
+                    console.log(jsonStr)
+                    $("#list").html("");
+                    var errCode = jsonStr.results.common.errorCode;
+                    var errDesc = jsonStr.results.common.errorMessage;
+                    if(errCode != "0"){
+                        alert(errCode+"="+errDesc);
+                    }else{
+                        if(jsonStr != null){
+                            makeListJson(jsonStr);
+                        }
+                    }
+                }
+                ,error: function(xhr,status, error){
+                    alert("에러발생");
+                }
+            });
+        }
+
+        function makeListJson(jsonStr){
+            var htmlStr = "";
+            htmlStr += "<table onclick='send()'>";
+            $(jsonStr.results.juso).each(function(){
+                htmlStr += "<tr>";
+                htmlStr += "<td id='"+this.roadAddr+"' onclick='sendData(this.id)'>"+this.roadAddr+"</td>";
+                htmlStr += "</tr>";
+            });
+            htmlStr += "</table>";
+            $("#list").html(htmlStr);
+        }
+
+        //특수문자, 특정문자열(sql예약어의 앞뒤공백포함) 제거
+        function checkSearchedWord(obj){
+            if(obj.value.length >0){
+                //특수문자 제거
+                var expText = /[%=><]/ ;
+                if(expText.test(obj.value) == true){
+                    alert("특수문자를 입력 할수 없습니다.") ;
+                    obj.value = obj.value.split(expText).join("");
+                    return false;
+                }
+
+                //특정문자열(sql예약어의 앞뒤공백포함) 제거
+                var sqlArray = new Array(
+                    //sql 예약어
+                    "OR", "SELECT", "INSERT", "DELETE", "UPDATE", "CREATE", "DROP", "EXEC",
+                    "UNION",  "FETCH", "DECLARE", "TRUNCATE"
+                );
+
+                var regex;
+                for(var i=0; i<sqlArray.length; i++){
+                    regex = new RegExp( sqlArray[i] ,"gi") ;
+
+                    if (regex.test(obj.value) ) {
+                        alert("\"" + sqlArray[i]+"\"와(과) 같은 특정문자로 검색할 수 없습니다.");
+                        obj.value =obj.value.replace(regex, "");
+                        return false;
+                    }
+                }
+            }
+            return true ;
+        }
+
+        function enterSearch() {
+            var evt_code = (window.netscape) ? ev.which : event.keyCode;
+            if (evt_code == 13) {
+                event.keyCode = 0;
+                getAddr(); //jsonp사용시 enter검색
+            }
+        }
+
+        const sendBox = (id)=>{
+            const text = document.getElementById("addressInput").value;
+            console.log("작동테스트")
+            console.log(id)
+
+
+            window.opener.document.getElementById("input-address").value = id;
+        }
+
+        const sendData = (id)=>{
+            console.log("작동테스트")
+            console.log(id)
+
+
+            window.opener.document.getElementById("input-address").value = id;
+            window.close();
+        }
+    </script>
+    </script>
+    <title>주소 찾기</title>
+</head>
+<body>
+<input hidden="hidden" id="addressInput" type="text" />
+
+<form name="form" id="form" method="post">
+    <div id="search-container">
+        <input hidden="hidden" type="text" name="currentPage" value="1"/>
+        <input hidden="hidden" type="text" name="countPerPage" value="10"/><!-- 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <= 100) -->
+        <input hidden="hidden" type="text" name="resultType" value="json"/>
+        <input hidden="hidden" type="text" name="confmKey" value="U01TX0FVVEgyMDIzMDUwMjIwNTEyMTExMzczOTg=" />
+        <input type="text" id="myInput" name="keyword" value="" placeholder="주소를 입력해주세요" onkeydown="enterSearch();" /><!-- 요청 변수 설정 (키워드) -->
+    </div>
+    <div id="list" ></div><!-- 검색 결과 리스트 출력 영역 -->
+</form>
+</body>
+</html>
+
+<!--style="background-color: transparent; border: none; outline: none;"-->

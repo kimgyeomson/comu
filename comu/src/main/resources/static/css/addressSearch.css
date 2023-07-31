@@ -1,0 +1,95 @@
+* {
+    font-family: Noto Sans KR;
+    margin: 0;
+    padding: 0;
+}
+
+/* set button color to #256BF4 */
+input[type="button"] {
+    background-color: #256BF4;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+/* center search button */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#form input[type="button"] {
+    margin-top: 16px;
+    border-radius: 6px;
+    border: 2px solid #256BF4;
+
+}
+
+#form input[type="button"]:hover {
+    background-color: #ffffff;
+    color: #256BF4;
+    border: 2px solid #256BF4;
+}
+
+input[type="text"], input[type="button"] {
+    margin-top: 20px;
+}
+
+
+table {
+    border-radius: 6px;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+thead{
+    background-color: #256BF4;
+    color: #ffffff;
+    text-align: left;
+}
+
+th,td {
+    border-top: 1px solid #ddd;
+    padding: 12px 15px;
+}
+
+tbody tr:hover {
+    font-weight: bold;
+}
+
+#search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top:80px;
+}
+
+#search-container input[type="text"] {
+    flex: 1;
+    font-size: 15px;
+    border-radius: 6px;
+    padding-left: 10px;
+    border: 1px solid #dfdfdf;
+
+}
+
+#search-container input[type="button"] {
+    flex: none;
+}
+
+#myInput {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    width: 400;
+    height: 42px;
+    padding-left: 15px;
+    margin-right: 0px;
+}
+
+
+

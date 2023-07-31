@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Login</title>
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
+</head>
+<body>
+<h2>Login</h2>
+<form action="/login" method="post">
+  <input type="email" name="email" placeholder="E-MAIL" required>
+  <br>
+  <input type="password" name="password" placeholder="PASSWORD" required>
+  <br>
+  <input type="submit" value="Login">
+
+
+</form>
+
+<a th:href="${url}">
+ <img width="100px" th:src="@{/image/naverButton.png}"/>
+</a>
+
+</body>
+</html>

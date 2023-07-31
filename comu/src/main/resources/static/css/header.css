@@ -1,0 +1,96 @@
+header {
+    background-color: #fff;
+    padding: 10px 0;
+    height: 60px;
+
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerLogo {
+}
+
+.menu {
+    margin-left: 10%;
+    height: 28px;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 400px;
+}
+
+.menu li {
+    width: 100%;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #1D1D20;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.account {
+    display: flex;
+    width: 310px;
+    justify-content: flex-end;
+}
+
+.account a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #1D1D20;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 2;
+}
+
+.accountlogin {
+    display: flex;
+    width: 310px;
+    justify-content: flex-end;
+}
+
+.accountlogin a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #1D1D20;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 2;
+}
+
+
+
+.logoutButton{
+    background-color: rgba(37.00000159442425, 107.00000122189522, 244.0000006556511, 1);
+    width: 70px;
+    height: 25px;
+    border-radius: 75px;
+    border: none;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.logoutButton:hover {
+    background-color: #ffffff;
+    color: #256BF4;
+    border: 2px solid #256BF4;
+}
+.account a:first-child {
+    margin-left: 0;
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>layout</title>
+    <th:block th:replace="layout/config::config"></th:block>
+</head>
+<body>
+<div id="myDiv">
+    <th:block th:replace="layout/header::header"></th:block>
+    <div style="min-height: calc(100vh - 10rem);">
+    <th:block layout:fragment="content"></th:block>
+    </div>
+    <th:block th:replace="layout/footer::footer"></th:block>
+</div>
+</body>
+</html>
