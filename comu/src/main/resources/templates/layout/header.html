@@ -17,13 +17,13 @@
         </ul>
       </nav>
 
-      <div th:if="${session.email == null}" class="account">
-        <a th:href="@{/signup_options}">회원가입</a>
+      <div th:if="${session.user == null}" class="account">
+        <a th:href="@{/join}">회원가입</a>
         <a th:href="@{/login}">로그인</a>
       </div>
 
-      <div th:if="${session.email != null}" class = "accountlogin">
-        <a href="#"><span th:text="${session.email}"></span>님</a>
+      <div th:if="${session.user != null}" class = "accountlogin">
+        <a href="#"><span th:text="${session.user.name}"></span>님</a>
         <a th:href="@{/myPage}">마이 페이지</a>
         <form th:action = "@{/logout}" method = "POST">
           <input type = "submit" class = "logoutButton" value = "로그아웃"/>

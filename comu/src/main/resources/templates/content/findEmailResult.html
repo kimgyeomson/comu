@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>네이버 : 회원가입</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/join.css}">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+<div class="container">
+  <div class="inner">
+    <h1 class="logo_naver">
+    </h1>
+    <div class="content">
+      <form id="join_form" method="POST" class="form">
+        <div class="form_content">
+          <div class="form_section">
+            <div class="form_list">
+              <div class="form_item email" id="divEmail">
+                <input type="email" id="email" name="email" placeholder="아이디"
+                       class="input" maxlength="100" />
+              </div>
+            </div>
+
+            <div class="btn_submit_wrap" id="divBtnAuth">
+              <button type="button" class="btn_submit" id="send29">인증요청</button>
+            </div>
+            <div class="btn_submit_wrap" id="divBtnJoin">
+              <button type="botton" class="btn_submit" id="btnJoin">비밀번호 찾기</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+</body>
+<script type="text/javascript" th:src="@{/js/join.js}"></script>

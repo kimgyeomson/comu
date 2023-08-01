@@ -3,6 +3,7 @@ package Project.comu.Member.Dao;
 
 import Project.comu.Member.Dto.MemberDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -17,17 +18,23 @@ public class MemberDao {
 
     public int join(MemberDto member) {
         String sql = "INSERT INTO MEMBER VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?)";
-        int result = 0;
-        result = jdbcTemplate.update(sql,
-                member.getEmail(),
-                member.getPassword(),
-                member.getPhone(),
-                member.getName(),
-                member.getBirth(),
-                member.getAddress(),
-                member.getGender(),
-                member.getForeigner());
+            int result = 0;
+        try {
+            result = jdbcTemplate.update(sql,
+                    member.getEmail(),
+                    member.getPassword(),
+                    member.getPhone(),
+                    member.getName(),
+                    member.getBirth(),
+                    member.getAddress(),
+                    member.getGender(),
+                    member.getForeigner());
 
+            return result;
+        }
+        catch (DuplicateKeyException e) {
+            result = 0;
+        }
         return result;
     }
 

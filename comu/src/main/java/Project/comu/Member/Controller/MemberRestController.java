@@ -19,4 +19,13 @@ public class MemberRestController {
     public int join1(MemberDto member) throws ParseException {
         return memberService.join(member);
     }
+    // 아이디 찾기
+    @PostMapping("/findEmail")
+    public String findEmail_P(MemberDto member) {
+
+
+        return "content/findEmailResult";
+    }
+
+
 }

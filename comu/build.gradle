@@ -38,6 +38,7 @@ dependencies {
 	implementation 'com.github.scribejava:scribejava-core:2.8.1'
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	implementation 'javax.validation:validation-api:2.0.1.Final'
+	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
 
 
 }

@@ -1,26 +1,139 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-  <title>Login</title>
-  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
+  <meta charset="UTF-8">
+  <title>네이버 : 로그인</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/login2.css}">
+  <style th:inline="css">
+        .logo {
+            background-image: url('/image/comu.png');
+            background-width: 300px 200px;
+
+        }
+    </style>
 </head>
+
 <body>
-<h2>Login</h2>
-<form action="/login" method="post">
-  <input type="email" name="email" placeholder="E-MAIL" required>
-  <br>
-  <input type="password" name="password" placeholder="PASSWORD" required>
-  <br>
-  <input type="submit" value="Login">
+  <div id="wrap" class="wrap">
+    <div class="u_skip"><a href="/">본문 바로가기</a></div>
+    <header class="header" role="banner" style="padding-bottom: 33px;">
+      <div class="header_inner">
+        <a href="/" class="logo">
+          <h1 class="blind">NAVER</h1>
+        </a>
+      </div>
+    </header>
+
+    <div id="container" class="container">
+      <!-- content -->
+      <div class="content">
+        <div class="login_wrap">
+          <form id="frmNIDLogin" name="frmNIDLogin" action="/login" method="POST">
+            <ul class="panel_wrap">
+              <li class="panel_item" style="display: block;">
+                <div class="panel_inner" role="tabpanel" aria-controls="loinid">
+
+                  <div class="id_pw_wrap">
+                    <div class="input_row" id="id_line">
+                      <div class="icon_cell" id="id_cell">
+                        <span class="icon_id">
+                          <span class="blind">아이디</span>
+                        </span>
+                      </div>
+                      <input type="text" id="id" name="email" placeholder="아이디" title="아이디" class="input_text"
+                        maxlength="41" value="">
+                      <span role="button" class="btn_delete" id="id_clear" style="display: none;">
+                        <span class="icon_delete">
+                          <span class="blind">삭제</span>
+                        </span>
+                      </span>
+                    </div>
+                    <div class="input_row" id="pw_line">
+                      <div class="icon_cell" id="pw_cell">
+                        <span class="icon_pw">
+                          <span class="blind">비밀번호</span>
+                        </span>
+                      </div>
+                      <input type="password" id="pw" name="password" placeholder="비밀번호" title="비밀번호" class="input_text"
+                        maxlength="16">
+                      <span role="button" class="btn_delete" id="pw_clear" style="display: none;">
+                        <span class="icon_delete">
+                          <span class="blind">삭제</span>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
 
 
-</form>
+                  <div class="login_error_wrap" id="err_capslock" style="display: none;">
+                    <div class="error_message">
+                      <strong>CapsLock</strong>이 켜져 있습니다.
+                    </div>
+                  </div>
 
-<a th:href="${url}">
- <img width="100px" th:src="@{/image/naverButton.png}"/>
-</a>
+                  <div class="login_error_wrap" id="err_empty_id" style="display: none;">
+                    <div class="error_message">
+                      <strong>아이디</strong>를 입력해 주세요.
+                    </div>
+                  </div>
 
+                  <div class="login_error_wrap" id="err_empty_pw" style="display: none;">
+                    <div class="error_message">
+                      <strong>비밀번호</strong>를 입력해 주세요.
+                    </div>
+                  </div>
+                  <div class="login_error_wrap" id="err_common" style="display:none;">
+                    <div class="error_message" style="width:90%">
+
+                    </div>
+                  </div>
+                  <div class="btn_login_wrap">
+
+                    <button type="submit" class="btn_login" id="log.login">
+                      <span class="btn_text">로그인</span>
+                    </button>
+
+                  </div>
+                  <div style="margin-top: 50px; margin-left: 150px;">
+                  <a th:href="${url}"><img width="30px" th:src="@{/image/naverButton.png}"/></a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </form>
+        </div>
+        <ul class="find_wrap" id="find_wrap">
+
+          <li><a href="/findEmail"
+              class="find_text">아이디 찾기</a></li>
+          <li><a href="/findPassword"
+              class="find_text">비밀번호 찾기</a></li>
+          <li><a href="/join"
+              class="find_text">회원가입</a>
+          </li>
+
+        </ul>
+        <!--배너-->
+        <div id="gladbanner" class="banner_wrap">
+          &nbsp;
+        </div>
+      </div>
+      <!-- //content -->
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+      <div class="footer_inner">
+        <!--[주]고객센터,제휴문의,서비스안내-->
+
+        <div class="footer_copy">
+\
+        </div>
+      </div>
+    </div>
+
+  </div>
 </body>
+
 </html>

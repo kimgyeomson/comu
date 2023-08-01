@@ -27,20 +27,33 @@
                         <div class="form_list">
                             <div class="form_item email" id="divEmail">
                                 <input type="email" id="email" name="email" placeholder="아이디"
-                                       class="input" maxlength="100" onblur="checkEmailAvailability(this.value)"/>
+                                       class="input" maxlength="100" onblur="checkEmailAvailability(this.value)" required/>
                             </div>
                             <div class="form_item lock password" id="divPasswd">
                                 <input type="password" id="password" name="password" placeholder="비밀번호" class="input"
-                                       maxlength="20" onblur="checkPasswordAvailability(this.value, document.getElementById('ConfirmPassword').value)"/>
+                                       maxlength="20" onblur="checkPasswordAvailability(this.value, document.getElementById('ConfirmPassword').value)" required/>
                             </div>
                             <div class="form_item lock password" id="divConfirm">
                                 <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="비밀번호확인" class="input"
-                                       maxlength="20" onblur="checkPasswordAvailability(document.getElementById('password').value, this.value)"/>
+                                       maxlength="20" onblur="checkPasswordAvailability(document.getElementById('password').value, this.value)" required/>
                             </div>
-                            <div class="form_item phone" id="divPhoneNo">
+                            <div style="padding-right: 10px;" class="form_item phone" id="divPhoneNo">
                                 <input type="tel" id="phone" name="phone" placeholder="휴대전화번호" class="input"
-                                       maxlength="13"  onblur="checkPhoneAvailability(this.value)" oninput="hypenTel(this)"/>
+                                       maxlength="13" oninput="hypenTel(this)" required/>
+                                <div style="padding: 0px;" class="btn_submit_wrap" id="divBtnAuth">
+                                    <button style="font-size: 15px; padding: 5px; width: 82px;" type="button" class="btn_submit" onclick="PhoneSend()">인증요청</button>
+                                </div>
                             </div>
+                            <div style="padding-right: 10px; display: none;" class="form_item phone" id="PhoneResult">
+                                <input type="number" id="random" name="random" placeholder="인증번호 6자리를 입력하세요." class="input"
+                                       maxlength="13" required/>
+                                <div style="padding: 0px;" class="btn_submit_wrap" >
+                                    <button id="ResultButton" style="font-size: 15px; padding: 5px; width: 82px;" type="button" class="btn_submit" onclick="randomResult()">인증</button>
+                                </div>
+                            </div>
+
+
+                            <input hidden="hidden" type="number" id="randomNumber" value=""/>
 
                         </div>
                         <div class="error_text item_style" id="emailMsg" style="display: none"></div>
@@ -49,27 +62,27 @@
                         <div class="form_list">
                             <div class="form_item user" id="divName">
                                 <input type="text" id="name" name="name" placeholder="이름" class="input"
-                                       maxlength="40" />
+                                       maxlength="40" required/>
                             </div>
                             <div class="form_item calendar" id="divBirthday">
                                 <input type="text" id="birthday" name="birthday" placeholder="생년월일 8자리 예) 20230731" class="input"
-                                       maxlength="10" onblur="checkBirthdayAvailability(this.value)" oninput="periodBirth(this)"/>
+                                       maxlength="10" onblur="checkBirthdayAvailability(this.value)" oninput="periodBirth(this)" required/>
                             </div>
                             <div class="form_item telecom" id="divTelecom">
                                 <button style="background-color: transparent; border: none; outline: none;" type="button" onclick="road()" id="btn_telecom" class="btn_telecom" >
-                                    <input style="width: 300px;" type="text" name="address" class="placeholder" id="input-address" placeholder="주소 검색" readonly>
+                                    <input style="width: 300px;" type="text" name="address" class="placeholder" id="input-address" placeholder="주소 검색" readonly required>
                                 </button>
                             </div>
                             <div class="form_item adult" id="divIdentityGender">
                                 <ul class="adult_list" id="listIdentityGender">
                                     <li class="radio_item">
                                         <input type="radio" id="identityGender1" name="gender" value="M"
-                                               class="blind">
+                                               class="blind" required>
                                         <label for="identityGender1">남자</label>
                                     </li>
                                     <li class="radio_item">
                                         <input type="radio" id="identityGender2" name="gender" value="F"
-                                               class="blind">
+                                               class="blind" required>
                                         <label for="identityGender2">여자</label>
                                     </li>
                                 </ul>
@@ -88,11 +101,9 @@
                         </div>
                         <div class="error_text item_style" id="birthdayMsg" style="display: none"></div>
                     </div>
-                    <div class="btn_submit_wrap" id="divBtnAuth">
-                        <button type="button" class="btn_submit" id="send29">인증요청</button>
-                    </div>
+
                     <div class="btn_submit_wrap" id="divBtnJoin">
-                        <button type="submit" class="btn_submit" id="btnJoin">가입하기</button>
+                        <button type="submit" class="btn_submit" id="btnJoin" disabled="true">가입하기</button>
                     </div>
                 </div>
             </form>

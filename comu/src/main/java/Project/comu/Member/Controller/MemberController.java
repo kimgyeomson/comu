@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.Optional;
 
 @Log4j2
@@ -51,8 +50,8 @@ public class MemberController {
         }
 
         HttpSession session = request.getSession();
-        log.info("sessionId={}", session.getId());
-        session.setAttribute("email", loginUser.get().getEmail());
+        session.setAttribute("user", loginUser.get());
+        System.out.println("session.get : loginid : " + session.getAttribute("user"));
         return "redirect:/";
     }
 // 네이버 로그인후 회원가입이 안되어있으면 회원가입 또는 로그인
@@ -73,7 +72,8 @@ public class MemberController {
             model.addAttribute("user", user);
             return "/content/Naverjoin";
         }
-        session.setAttribute("email", user2);
+        session.setAttribute("user", user2.get());
+        System.out.println("세션 값 : " + session.getAttribute("user"));
         return "redirect:/";
         /* 네이버 로그인 성공 페이지 View 호출 */
     }
@@ -109,9 +109,16 @@ public class MemberController {
         return "content/find";
     }
 
-    @GetMapping("/findId")
-    public String findId() {
-        return "content/findId";
+    @GetMapping("/findEmail")
+    public String findEmail() {
+        return "content/findEmail";
     }
+
+    @GetMapping("/findPassword")
+    public String findPassword() {
+        return "content/findPassword";
+    }
+
+
 
 }

@@ -6,6 +6,7 @@
     <title>네이버 : 회원가입</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/join.css}">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/checkAvailability.js}"></script>
 
     <script>
         function road() {
@@ -26,12 +27,21 @@
                         <div class="form_list">
                             <div class="form_item email" id="divEmail">
                                 <input type="email" id="email" name="email" placeholder="아이디"
-                                       class="input" maxlength="100" onblur="checkEmailAvailability(this.value)" th:value="${user.email}" readonly/>
+                                       class="input" maxlength="100" onblur="checkEmailAvailability(this.value)"/>
+                            </div>
+                            <div class="form_item lock password" id="divPasswd">
+                                <input type="password" id="password" name="password" placeholder="비밀번호" class="input"
+                                       maxlength="20" onblur="checkPasswordAvailability(this.value, document.getElementById('ConfirmPassword').value)"/>
+                            </div>
+                            <div class="form_item lock password" id="divConfirm">
+                                <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="비밀번호확인" class="input"
+                                       maxlength="20" onblur="checkPasswordAvailability(document.getElementById('password').value, this.value)"/>
                             </div>
                             <div class="form_item phone" id="divPhoneNo">
                                 <input type="tel" id="phone" name="phone" placeholder="휴대전화번호" class="input"
-                                       maxlength="16" th:value="${user.phone}" onblur="checkPhoneAvailability(this.value)" readonly/>
+                                       maxlength="13"  onblur="checkPhoneAvailability(this.value)" oninput="hypenTel(this)"/>
                             </div>
+
                         </div>
                         <div class="error_text item_style" id="emailMsg" style="display: none"></div>
                         <div class="error_text item_style" id="pswd1Msg" style="display: none"></div>
@@ -39,11 +49,11 @@
                         <div class="form_list">
                             <div class="form_item user" id="divName">
                                 <input type="text" id="name" name="name" placeholder="이름" class="input"
-                                       maxlength="40" th:value="${user.name}" readonly/>
+                                       maxlength="40" />
                             </div>
                             <div class="form_item calendar" id="divBirthday">
-                                <input type="text" id="birthday" name="birthday" placeholder="생년월일 8자리" class="input"
-                                       maxlength="10" th:value="${user.birthday}" onblur="checkBirthdayAvailability(this.value)" readonly/>
+                                <input type="text" id="birthday" name="birthday" placeholder="생년월일 8자리 예) 20230731" class="input"
+                                       maxlength="10" onblur="checkBirthdayAvailability(this.value)" oninput="periodBirth(this)"/>
                             </div>
                             <div class="form_item telecom" id="divTelecom">
                                 <button style="background-color: transparent; border: none; outline: none;" type="button" onclick="road()" id="btn_telecom" class="btn_telecom" >
@@ -54,12 +64,12 @@
                                 <ul class="adult_list" id="listIdentityGender">
                                     <li class="radio_item">
                                         <input type="radio" id="identityGender1" name="gender" value="M"
-                                               class="blind" onclick="return false;">
+                                               class="blind">
                                         <label for="identityGender1">남자</label>
                                     </li>
                                     <li class="radio_item">
                                         <input type="radio" id="identityGender2" name="gender" value="F"
-                                               class="blind" onclick="return false;">
+                                               class="blind">
                                         <label for="identityGender2">여자</label>
                                     </li>
                                 </ul>
@@ -89,15 +99,19 @@
         </div>
     </div>
 </div>
-</body>
-<script th:inline="javascript">
-    let radioButtons = document.getElementsByName("gender");
+<script>
+    const hypenTel = (target) => {
+    target.value = target.value
+        .replace(/[^0-9]/g, '')
+        .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+}
 
-for (var i = 0; i < radioButtons.length; i++) {
-    if (radioButtons[i].value === /*[[${user.gender}]]*/) {
-        radioButtons[i].checked = true;
-        break; // Exit the loop once a match is found
-    }
+    const periodBirth = (target) => {
+    target.value = target.value
+        .replace(/[^0-9]/g, '')
+        .replace(/^(\d{4})(\d{2})(\d{2})$/, `$1.$2.$3`);
 }
 </script>
+</body>
+<script type="text/javascript" th:src="@{/js/join.js}"></script>
 

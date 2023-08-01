@@ -670,7 +670,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .how_secure.dangerous {
     background: rgba(236, 62, 59, .12);
-    color: #eb0000
 }
 
 .btn_show {
@@ -1255,7 +1254,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 10px 4px 0;
     font-size: 13px;
     line-height: 18px;
-    color: #ff3f3f
 }
 
 .error_text.item_style {
@@ -1365,7 +1363,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 13px;
     line-height: 19px;
     letter-spacing: -.1px;
-    color: #eb0000
+    
 }
 
 .dimlayer {
