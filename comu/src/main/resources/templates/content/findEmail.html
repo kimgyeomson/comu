@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>네이버 : 회원가입</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/join.css}">
+    <script type="text/javascript" th:src="@{/js/checkAvailability.js}"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </head>
@@ -23,15 +24,24 @@
                                 <input type="email" id="email" name="email" placeholder="아이디"
                                        class="input" maxlength="100" onblur="checkEmailAvailability(this.value)"/>
                             </div>
-                            <div class="form_item phone" id="divPhoneNo">
+                            <div class="form_item phone" id="divPhoneNo" style="padding-right: 10px;">
                                 <input type="tel" id="phone" name="phone" placeholder="휴대전화번호" class="input"
-                                       maxlength="16" onblur="checkPhoneAvailability(this.value)"/>
+                                       maxlength="16" />
+                                <div style="padding: 0px;" class="btn_submit_wrap">
+                                    <button style="font-size: 15px; padding: 5px; width: 82px;" type="button" class="btn_submit" onclick="PhoneSend()">인증요청</button>
+                                </div>
+                            </div>
+                            <div class="form_item phone" id="ResultNo" style="padding-right: 10px; display: none;">
+                                <input type="number" id="random" name="random" placeholder="인증번호 6자리를 입력하세요." class="input"
+                                       maxlength="6" />
+                                <div style="padding: 0px;" class="btn_submit_wrap" id="divBtnAuth">
+                                    <button style="font-size: 15px; padding: 5px; width: 82px;" type="button" class="btn_submit" id="ResultButton" onclick="randomResult()">인증하기</button>
+                                </div>
                             </div>
                         </div>
-
-                    <div class="btn_submit_wrap" id="divBtnAuth">
-                        <button type="button" class="btn_submit" id="send29">인증요청</button>
-                    </div>
+                        <div class="error_text item_style" id="emailMsg" style="display: none"></div>
+                        <div class="error_text item_style" id="phoneMsg" style="display: none"></div>
+                        <input hidden="hidden" type="number" id="randomNumber" value=""/>
                     <div class="btn_submit_wrap" id="divBtnJoin">
                         <button type="submit" class="btn_submit" id="btnJoin">아이디 찾기</button>
                     </div>
