@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/join.css}">
     <script type="text/javascript" th:src="@{/js/checkAvailability.js}"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/checkAvailability.js}"></script>
 
 </head>
 
@@ -24,23 +25,23 @@
                                 <input type="email" id="email" name="email" placeholder="아이디"
                                        class="input" maxlength="100" onblur="checkEmailAvailability(this.value)"/>
                             </div>
-                            <div class="form_item phone" id="divPhoneNo" style="padding-right: 10px;">
+
+                            <div style="padding-right: 10px;" class="form_item phone" id="divPhoneNo">
                                 <input type="tel" id="phone" name="phone" placeholder="휴대전화번호" class="input"
-                                       maxlength="16" />
-                                <div style="padding: 0px;" class="btn_submit_wrap">
-                                    <button style="font-size: 15px; padding: 5px; width: 82px;" type="button" class="btn_submit" onclick="PhoneSend()">인증요청</button>
+                                       maxlength="13" oninput="hypenTel(this)" required/>
+                                <div style="padding: 0px;" class="btn_submit_wrap" id="divBtnAuth">
+                                    <button id="Certified" style="font-size: 15px; padding: 5px; width: 82px;" type="button" class="btn_submit" onclick="PhoneSend()">인증요청</button>
                                 </div>
                             </div>
-                            <div class="form_item phone" id="ResultNo" style="padding-right: 10px; display: none;">
+                            <div style="padding-right: 10px; display: none;" class="form_item phone" id="PhoneResult">
                                 <input type="number" id="random" name="random" placeholder="인증번호 6자리를 입력하세요." class="input"
-                                       maxlength="6" />
-                                <div style="padding: 0px;" class="btn_submit_wrap" id="divBtnAuth">
-                                    <button style="font-size: 15px; padding: 5px; width: 82px;" type="button" class="btn_submit" id="ResultButton" onclick="randomResult()">인증하기</button>
+                                       maxlength="13" required/>
+                                <div style="padding: 0px;" class="btn_submit_wrap" >
+                                    <button id="ResultButton" style="font-size: 15px; padding: 5px; width: 82px;" type="button" class="btn_submit" onclick="randomResult()">인증</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="error_text item_style" id="emailMsg" style="display: none"></div>
-                        <div class="error_text item_style" id="phoneMsg" style="display: none"></div>
+
                         <input hidden="hidden" type="number" id="randomNumber" value=""/>
                     <div class="btn_submit_wrap" id="divBtnJoin">
                         <button type="submit" class="btn_submit" id="btnJoin">아이디 찾기</button>
@@ -52,5 +53,12 @@
     </div>
 
 </div>
+<script>
+        const hypenTel = (target) => {
+    target.value = target.value
+        .replace(/[^0-9]/g, '')
+        .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+}
+</script>
 </body>
 <script type="text/javascript" th:src="@{/js/join.js}"></script>

@@ -71,6 +71,8 @@ function randomResult() {
         document.getElementById('btnJoin').disabled = false;
         document.getElementById('ResultButton').disabled = true;
         document.getElementById('random').readOnly = true;
+        document.getElementById('PhoneResult').style.display = 'none';
+        document.getElementById('Certified').disabled = true;
     }
     else {
         console.log(randomResponse);
