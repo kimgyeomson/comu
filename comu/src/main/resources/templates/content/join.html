@@ -41,7 +41,7 @@
                                 <input type="tel" id="phone" name="phone" placeholder="휴대전화번호" class="input"
                                        maxlength="13" oninput="hypenTel(this)" required/>
                                 <div style="padding: 0px;" class="btn_submit_wrap" id="divBtnAuth">
-                                    <button style="font-size: 15px; padding: 5px; width: 82px;" type="button" class="btn_submit" onclick="PhoneSend()">인증요청</button>
+                                    <button id="Certified" style="font-size: 15px; padding: 5px; width: 82px;" type="button" class="btn_submit" onclick="PhoneSend()">인증요청</button>
                                 </div>
                             </div>
                             <div style="padding-right: 10px; display: none;" class="form_item phone" id="PhoneResult">
@@ -103,7 +103,7 @@
                     </div>
 
                     <div class="btn_submit_wrap" id="divBtnJoin">
-                        <button type="submit" class="btn_submit" id="btnJoin" disabled="true">가입하기</button>
+                            <button type="submit" class="btn_submit" id="btnJoin" disabled="true">가입하기</button>
                     </div>
                 </div>
             </form>

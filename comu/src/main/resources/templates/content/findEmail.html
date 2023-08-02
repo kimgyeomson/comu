@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/join.css}">
     <script type="text/javascript" th:src="@{/js/checkAvailability.js}"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" th:src="@{/js/checkAvailability.js}"></script>
+    <script type="text/javascript" th:src="@{/js/findEmail.js}"></script>
 
 </head>
 
@@ -41,10 +41,13 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="error_text item_style" id="emailMsg" style="display: none"></div>
+                        <div class="error_text item_style" id="pswd1Msg" style="display: none"></div>
+                        <div class="error_text item_style" id="phoneMsg" style="display: none"></div>
 
                         <input hidden="hidden" type="number" id="randomNumber" value=""/>
                     <div class="btn_submit_wrap" id="divBtnJoin">
-                        <button type="submit" class="btn_submit" id="btnJoin">아이디 찾기</button>
+                        <button type="submit" class="btn_submit" id="btnJoin" disabled="true">아이디 찾기</button>
                     </div>
                     </div>
                 </div>

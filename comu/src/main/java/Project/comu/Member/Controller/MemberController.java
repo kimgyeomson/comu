@@ -119,6 +119,11 @@ public class MemberController {
         return "content/findPassword";
     }
 
+    @GetMapping("/findEmailResult")
+    public String findEmailResult() {
+        return "content/findEmailResult";
+    }
+
 
 
 }
