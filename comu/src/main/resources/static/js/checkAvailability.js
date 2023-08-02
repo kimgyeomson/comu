@@ -87,12 +87,16 @@ function PhoneSend() {
                     console.log(response);
                     console.log(response.data);
                     document.getElementById('randomNumber').value = response.data;
+                    document.getElementById('phoneMsg').style.display = 'none';
+                    document.getElementById('phoneMsg').style.color = '#1A6DFF';
                 })
                 .catch(error => {
                     console.error(error);
                 })    
             } else {
-                alert('등록된 번호입니다.')
+                document.getElementById('phoneMsg').innerText = '등록된 번호입니다.';
+                document.getElementById('phoneMsg').style.display = 'block';
+                document.getElementById('phoneMsg').style.color = '#ff3f3f';
             }
         })
         .catch(error => {
@@ -100,7 +104,9 @@ function PhoneSend() {
         });
     }
     else {
-        alert("전화번호를 다시 입력해주세요.");
+        document.getElementById('phoneMsg').innerText = '전화번호를 입력해주세요';
+        document.getElementById('phoneMsg').style.display = 'block';
+        document.getElementById('phoneMsg').style.color = '#ff3f3f';
     }    
 }
 

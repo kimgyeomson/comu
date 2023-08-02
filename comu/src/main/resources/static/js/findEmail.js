@@ -9,11 +9,13 @@ function checkEmailAvailability(email) {
     axios.get('/check-email/' + email)
         .then(response => {
             if (response.data.available) {
-                availabilityMessage = '사용가능한 이메일입니다.';
-                document.getElementById('emailMsg').style.color = '#1A6DFF';
-            } else {
-                availabilityMessage = '사용하고있는 이메일입니다.';
+                availabilityMessage = '등록되지 않는 이메일입니다.';
                 document.getElementById('emailMsg').style.color = '#ff3f3f';
+            } else {
+                // availabilityMessage = '사용하고있는 이메일입니다.';
+                // document.getElementById('emailMsg').style.color = '#ff3f3f';
+                availabilityMessage = '';
+                document.getElementById('emailMsg').style.display = 'none';
                 
             }
             document.getElementById('emailMsg').innerText = availabilityMessage;
@@ -31,9 +33,12 @@ function PhoneSend() {
         axios.get('/check-phone/' + number)
         .then(response => {
             if (response.data.available) {
+                document.getElementById('phoneMsg').innerText = '등록되지 않는 번호입니다.';
+                document.getElementById('phoneMsg').style.display = 'block';
+                document.getElementById('phoneMsg').style.color = '#ff3f3f';
+            } else {
                 alert("인증번호가 발송되었습니다.");
-                document.getElementById('ResultNo').style.display = 'flex';
-
+                document.getElementById('PhoneResult').style.display = 'flex';
                 axios.get('/send', {params: {phoneNumber: number}})
                 .then(response => {
                     console.log(response);
@@ -45,10 +50,6 @@ function PhoneSend() {
                 .catch(error => {
                     console.error(error);
                 })    
-            } else {
-                document.getElementById('phoneMsg').innerText = '등록된 번호입니다.';
-                document.getElementById('phoneMsg').style.display = 'block';
-                document.getElementById('phoneMsg').style.color = '#ff3f3f';
             }
         })
         .catch(error => {
@@ -73,6 +74,7 @@ function randomResult() {
         document.getElementById('random').readOnly = true;
         document.getElementById('PhoneResult').style.display = 'none';
         document.getElementById('Certified').disabled = true;
+        document.getElementById('btnJoin').disabled = false;
     }
     else {
         console.log(randomResponse);
