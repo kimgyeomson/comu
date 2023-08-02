@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>네이버 : 회원가입</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/join.css}">
+    <script type="text/javascript" th:src="@{/js/checkAvailability.js}"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" th:src="@{/js/findEmail.js}"></script>
 
@@ -24,6 +25,7 @@
                                 <input type="email" id="email" name="email" placeholder="아이디"
                                        class="input" maxlength="100" onblur="checkEmailAvailability(this.value)"/>
                             </div>
+
                             <div style="padding-right: 10px;" class="form_item phone" id="divPhoneNo">
                                 <input type="tel" id="phone" name="phone" placeholder="휴대전화번호" class="input"
                                        maxlength="13" oninput="hypenTel(this)" required/>
@@ -42,6 +44,7 @@
                         <div class="error_text item_style" id="emailMsg" style="display: none"></div>
                         <div class="error_text item_style" id="pswd1Msg" style="display: none"></div>
                         <div class="error_text item_style" id="phoneMsg" style="display: none"></div>
+
                         <input hidden="hidden" type="number" id="randomNumber" value=""/>
                     <div class="btn_submit_wrap" id="divBtnJoin">
                         <button type="submit" class="btn_submit" id="btnJoin" disabled="true">아이디 찾기</button>
