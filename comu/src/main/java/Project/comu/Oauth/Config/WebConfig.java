@@ -17,7 +17,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .order(2)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/", "/login", "/address-search/**",
-                                     "/join","/rest/join" ,"/find", "/send",
+                                     "/join","/rest/join" ,"/find", "/send", "/findEmailResult" ,
                                      "/findEmail",  "/login2" , "/go", "/send/**" , "/sms/send",
                                      "/logout","/callback" ,"/naverjoin", "/check-email/**","/check-phone/**" , "/naver",
                                      "https://nid.naver.com/oauth2.0/**","https://business.juso.go.kr/**",
