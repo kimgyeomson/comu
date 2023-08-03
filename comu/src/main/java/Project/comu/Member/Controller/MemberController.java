@@ -24,6 +24,7 @@ public class MemberController {
     @Autowired
     private NaverLoginBO naverLoginBO;
 
+
     @GetMapping("/login")
     public String login(Model model, HttpSession session) {
         /* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
@@ -77,6 +78,7 @@ public class MemberController {
         return "redirect:/";
         /* 네이버 로그인 성공 페이지 View 호출 */
     }
+
 //  로그아웃
     @PostMapping("/logout")
     public String logoutV3(HttpServletRequest request) {
@@ -92,7 +94,7 @@ public class MemberController {
     public String join() {
         return "/content/join";
     }
-
+// 주소 팝업창
     @GetMapping("/address-search")
     public String addressSearch(){
 
