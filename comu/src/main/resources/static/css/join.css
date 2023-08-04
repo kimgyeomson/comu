@@ -168,13 +168,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .form_item {
-    display: flex;
-    align-items: center;
-    position: relative;
-    box-sizing: border-box;
-    max-width: 100%;
-    min-height: 50px;
-    padding: 0 10px 0 45px
+        display: flex;
+        align-items: center;
+        position: relative;
+        box-sizing: border-box;
+        max-width: 100%;
+        min-height: 50px;
+        padding: 0 10px 0 45px;
 }
 
 .form_item:first-of-type {
@@ -305,11 +305,39 @@ input[type=number]::-webkit-outer-spin-button {
     background-position: -64px -296px;
     background-repeat: no-repeat;
     width: 30px;
-    height: 30px
+    height: 30px;
 }
 
 .form_item.phone {
-    padding-right: 94px
+    padding-right: 94px;
+    padding:0 10px 0 45px;
+}
+.form_item.email {
+    padding:0 10px 0 45px;
+}
+
+#divPasswd {
+    padding:0 10px 0 45px;
+}
+
+#divConfirm {
+    padding:0 10px 0 45px;
+}
+
+.form_item.user {
+    padding:0 10px 0 45px;
+}
+
+.form_item.calendar {
+    padding:0 10px 0 45px;
+}
+
+.form_item.telecom {
+    padding:0 10px 0 45px;
+}
+
+.adult_list {
+    display:flex;
 }
 
 .form_item.phone.on::before {
@@ -406,14 +434,7 @@ input[type=number]::-webkit-outer-spin-button {
     content: ''
 }
 
-.form_item {
-    flex: none;
-    padding: 0 4px 0 6px;
-    font-size: 15px;
-    line-height: 22px;
-    letter-spacing: -.2px;
-    color: #767678
-}
+
 
 .input {
     flex: 1 1 auto;
@@ -549,3 +570,100 @@ input[type=number]::-webkit-outer-spin-button {
 .error_text+.form_list {
     margin-top: 10px
 }
+
+@media (min-width:768px) {
+    .inner {
+        width: 500px;
+        margin: 0 auto
+    }
+
+    .inner.no_margin {
+        width: 100%
+    }
+
+    .inner.no_margin .logo_naver {
+        box-sizing: border-box;
+        width: 500px;
+        margin: 0 auto
+    }
+
+    .form_section {
+        margin-right: 20px;
+        margin-left: 20px;
+        padding-right: 0;
+        padding-left: 0
+    }
+
+    .admit_tab .tab_item:last-of-type {
+        position: relative
+    }
+
+    .admit_tab .tab_item:last-of-type::before {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 1px;
+        height: 20px;
+        margin-top: -10px;
+        background: #d3d3d4;
+        content: ''
+    }
+
+    .admit_tab .tab {
+        text-align: center
+    }
+
+    .welcome_wrap .intro {
+        flex: none;
+        padding-top: 120px
+    }
+
+    .welcome_wrap .intro br {
+        display: none
+    }
+
+    .welcome_wrap .service_list_wrap {
+        flex: 1 1 auto
+    }
+
+    .welcome_wrap .service_list {
+        max-width: 466px
+    }
+
+    .welcome_wrap .service_item {
+        width: 66px
+    }
+
+    .welcome_wrap .service_item+.service_item {
+        margin-left: 14px
+    }
+
+    .form.btn_fixed .btn_submit_wrap {
+        width: 460px;
+        margin: 0 auto
+    }
+}
+
+.form_item.calendar.error::before,
+.form_item.calendar.on::before,
+.form_item.calendar::before,
+.form_item.email.error::before,
+.form_item.email.on::before,
+.form_item.email::before,
+.form_item.lock.error::before,
+.form_item.lock.on::before,
+.form_item.lock::before,
+.form_item.phone.error::before,
+.form_item.phone.on::before,
+.form_item.phone::before,
+.form_item.telecom.error::before,
+.form_item.telecom.on::before,
+.form_item.telecom::before,
+.form_item.user.error::before,
+.form_item.user.on::before,
+.form_item.user::before {
+    background-image: url(https://ssl.pstatic.net/static/nid/join/m_sp_06_realname_4c092b41.png);
+    background-size: 340px 326px;
+    background-repeat: no-repeat
+}
+
