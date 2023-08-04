@@ -52,6 +52,11 @@ public class MemberService {
     public boolean Boolean_findByPhone(String phone) {
         return memberDao.Boolean_findByPhone(phone);
     }
+
+    public MemberDto findByPhone(String phone) {
+
+        return memberDao.findByPhone(phone);
+    }
 // String => Date 변환
     public Date convertToDate(String dateString) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");

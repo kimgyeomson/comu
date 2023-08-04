@@ -16,15 +16,10 @@
         <h1 class="logo_naver">
         </h1>
         <div class="content">
-            <form id="join_form" action="/findEmailResult" method="POST" class="form">
+            <form id="join_form" action="/findEmail" method="POST" class="form">
                 <div class="form_content">
                     <div class="form_section">
-                        <div class="form_list">
-                            <div class="form_item email" id="divEmail">
-                                <input type="email" id="email" name="email" placeholder="아이디"
-                                       class="input" maxlength="100" onblur="checkEmailAvailability(this.value)"/>
-                            </div>
-
+                        <div class="form_list" id="phoneFormList">
                             <div style="padding-right: 10px;" class="form_item phone" id="divPhoneNo">
                                 <input type="tel" id="phone" name="phone" placeholder="휴대전화번호" class="input"
                                        maxlength="13" oninput="hypenTel(this)" required/>
@@ -32,7 +27,7 @@
                                     <button id="Certified" style="font-size: 15px; padding: 5px; width: 82px;" type="button" class="btn_submit" onclick="PhoneSend()">인증요청</button>
                                 </div>
                             </div>
-                            <div style="padding-right: 10px; display: none;" class="form_item phone" id="PhoneResult">
+                            <div style="padding-right: 10px; display: none; border-top: 1px solid #dfdfdf;" class="form_item phone" id="PhoneResult">
                                 <input type="number" id="random" name="random" placeholder="인증번호 6자리를 입력하세요." class="input"
                                        maxlength="13" required/>
                                 <div style="padding: 0px;" class="btn_submit_wrap" >

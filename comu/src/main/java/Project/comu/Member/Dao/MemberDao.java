@@ -79,4 +79,18 @@ public class MemberDao {
         }
         return result;
     }
+
+    public MemberDto findByPhone(String phone) {
+        String sql = "SELECT * FROM MEMBER WHERE PHONE = ?";
+        MemberDto member = null;
+        try {
+            member = jdbcTemplate.queryForObject(sql, new MemberRowMapper(), phone);
+
+        }
+        catch (EmptyResultDataAccessException e) {
+            member.setEmail("이메일이 없습니다.");
+        }
+        return member;
+    }
+
 }

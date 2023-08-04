@@ -20,12 +20,7 @@ public class MemberRestController {
         return memberService.join(member);
     }
     // 아이디 찾기
-    @PostMapping("/findEmail")
-    public String findEmail_P(MemberDto member) {
 
-
-        return "content/findEmailResult";
-    }
 
 
 }

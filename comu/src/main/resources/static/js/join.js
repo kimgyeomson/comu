@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('birthdayMsg').innerText = '생년월일은 8자리 숫자로 입력해 주세요.';
     }
     else {
-    axios.post('/rest/join', formData)
+    axios.post('/findEmail', formData)
       .then(function(response) {
         console.log(response.data);
 

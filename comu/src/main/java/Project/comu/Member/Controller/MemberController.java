@@ -126,12 +126,15 @@ public class MemberController {
         return "content/findEmailResult";
     }
 
-    @PostMapping("/findEmailResult")
-    public String findEmailResult_P(Model model, MemberDto member) {
-        System.out.println("Result컨트롤러 : " + member.toString());
+    @PostMapping("/findEmail")
+    public String findEmail_P(MemberDto member, Model model) {
+
+
+        model.addAttribute("member", memberService.findByPhone(member.getPhone()));
 
         return "content/findEmailResult";
     }
+
 
 
 

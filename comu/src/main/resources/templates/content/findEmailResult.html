@@ -24,22 +24,32 @@
     font-size: 2rem;
     border-radius: 1rem;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
-  }
+}
+.btn_submit {
+    width: 100px;
+    padding: 14px 0;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, .05);
+    background: #1A6DFF;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #fff;
+}
+
 
 </style>
 <body>
 <div class="container">
     <div class="content">
-        <span>가나다라</span>
+        <span th:text="${member.email}"></span>
     </div>
     <div>
-    <button type="button">로그인</button>
-    <button>아이디찾기</button>
-    </div>
-
-    <div class="content2">
-        <button>아이디찾기</button>
-
+    <a th:href="@{/login}"><button class="btn_submit" type="button">로그인</button></a>
+    <form action="findPassword" method="POST">
+        <input hidden="hidden" type="text" th:value="${member.email}" />
+    <button class="btn_submit">비밀번호 찾기</button>
+    </form>
     </div>
 </div>
 </body>

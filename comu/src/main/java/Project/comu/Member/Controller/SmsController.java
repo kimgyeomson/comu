@@ -23,11 +23,10 @@ public class SmsController {
 
     @GetMapping("/send")
     public int getSmsPage(@RequestParam("phoneNumber") String phoneNumber) throws UnsupportedEncodingException, URISyntaxException, NoSuchAlgorithmException, InvalidKeyException, JsonProcessingException {
-//        System.out.println("send : " + phoneNumber);
-//        int random = smsService.sendSms(phoneNumber);
-
+        System.out.println("send : " + phoneNumber);
 
         return smsService.randomNumber();
+//        return smsService.sendSms(phoneNumber);
     }
 
 

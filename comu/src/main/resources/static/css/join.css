@@ -109,17 +109,7 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 20px
 }
 
-.btn_submit {
-    width: 100%;
-    padding: 14px 0;
-    border-radius: 6px;
-    border: 1px solid rgba(0, 0, 0, .05);
-    background: #1A6DFF;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 22px;
-    color: #fff
-}
+
 
 .btn_submit:disabled {
     background: #256BF4;
@@ -434,6 +424,17 @@ input[type=number]::-webkit-outer-spin-button {
     content: ''
 }
 
+.form_item::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: inherit;
+    border: 1px solid #dfdfdf;
+    pointer-events: none;
+    content: ''
+}
 
 
 .input {
