@@ -663,6 +663,7 @@ input[type=number]::-webkit-outer-spin-button {
 .form_item.user.error::before,
 .form_item.user.on::before,
 .form_item.user::before {
+    background-image: url(https://ssl.pstatic.net/static/nid/join/m_sp_06_realname_4c092b41.png);
     background-size: 340px 326px;
     background-repeat: no-repeat
 }

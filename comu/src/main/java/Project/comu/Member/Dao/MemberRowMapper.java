@@ -9,7 +9,8 @@ import java.sql.SQLException;
 public class MemberRowMapper implements RowMapper<MemberDto> {
     @Override
     public MemberDto mapRow(ResultSet rs, int rowNum) throws SQLException {
-        MemberDto user = MemberDto.builder()
+
+        return MemberDto.builder()
                 .id(rs.getString("ID"))
                 .email(rs.getString("EMAIL"))
                 .password(rs.getString("PASSWORD"))
@@ -20,7 +21,5 @@ public class MemberRowMapper implements RowMapper<MemberDto> {
                 .gender(rs.getString("GENDER"))
                 .foreigner(rs.getString("FOREIGNER"))
                 .build();
-
-        return user;
     }
 }

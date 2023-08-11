@@ -2,6 +2,7 @@ package Project.comu.Member.Dao;
 
 
 import Project.comu.Member.Dto.MemberDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -11,10 +12,10 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
+@RequiredArgsConstructor
 public class MemberDao {
 
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public int join(MemberDto member) {
         String sql = "INSERT INTO MEMBER VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -33,9 +34,8 @@ public class MemberDao {
             return result;
         }
         catch (DuplicateKeyException e) {
-            result = 0;
+            return result;
         }
-        return result;
     }
 
 // 이메일 찾기
@@ -56,7 +56,7 @@ public class MemberDao {
         try {
             MemberDto answer = jdbcTemplate.queryForObject(sql, new MemberRowMapper(), email);
             if(answer != null) {
-                result = false;
+                return result;
             }
         }
         catch (EmptyResultDataAccessException e) {
@@ -70,9 +70,6 @@ public class MemberDao {
         boolean result = false;
         try {
             MemberDto answer = jdbcTemplate.queryForObject(sql, new MemberRowMapper(), phone);
-            if(answer != null) {
-                result = false;
-            }
         }
         catch (EmptyResultDataAccessException e) {
             result = true;
@@ -87,8 +84,8 @@ public class MemberDao {
             member = jdbcTemplate.queryForObject(sql, new MemberRowMapper(), phone);
 
         }
-        catch (EmptyResultDataAccessException e) {
-            member.setEmail("이메일이 없습니다.");
+        catch (EmptyResultDataAccessException ignored) {
+            System.out.println("이메일이 없습니다.");
         }
         return member;
     }

@@ -2,6 +2,7 @@ package Project.comu.Member.So;
 
 import Project.comu.Member.Dao.MemberDao;
 import Project.comu.Member.Dto.MemberDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,12 +14,11 @@ import java.util.Date;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class MemberService {
 
-    @Autowired
-    private MemberDao memberDao;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final MemberDao memberDao;
+    private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public int join(MemberDto member) throws ParseException {

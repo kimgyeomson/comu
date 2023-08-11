@@ -29,7 +29,6 @@ import java.util.List;
 import java.util.Random;
 
 @Slf4j
-@RequiredArgsConstructor
 @Service
 public class SmsService {
 
@@ -78,9 +77,8 @@ public class SmsService {
 
         int min = 100000;
         int max = 999999;
-        int randomNumber = new Random().nextInt(max - min + 1) + min;
 
-        return randomNumber;
+        return new Random().nextInt(max - min + 1) + min;
     }
 
     public int sendSms(String resultPhone) throws JsonProcessingException, RestClientException, URISyntaxException, InvalidKeyException, NoSuchAlgorithmException, UnsupportedEncodingException {

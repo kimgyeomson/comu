@@ -16,10 +16,10 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 @RestController
+@RequiredArgsConstructor
 public class SmsController {
 
-    @Autowired
-    private SmsService smsService;
+    private final SmsService smsService;
 
     @GetMapping("/send")
     public int getSmsPage(@RequestParam("phoneNumber") String phoneNumber) throws UnsupportedEncodingException, URISyntaxException, NoSuchAlgorithmException, InvalidKeyException, JsonProcessingException {
@@ -29,11 +29,4 @@ public class SmsController {
 //        return smsService.sendSms(phoneNumber);
     }
 
-
-//    @PostMapping("/sms/send/phone")
-//    public String sendSms(MessageDto messageDto, Model model) throws JsonProcessingException, RestClientException, URISyntaxException, InvalidKeyException, NoSuchAlgorithmException, UnsupportedEncodingException {
-//
-////        model.addAttribute("random", smsService.sendSms(messageDto));
-//        return "content/result";
-//    }
 }

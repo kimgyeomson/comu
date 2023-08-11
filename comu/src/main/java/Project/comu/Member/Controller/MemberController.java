@@ -4,6 +4,7 @@ import Project.comu.Member.So.MemberService;
 import Project.comu.Member.Dto.MemberDto;
 import Project.comu.Oauth.Naver.NaverLoginBO;
 import com.github.scribejava.core.model.OAuth2AccessToken;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,12 +18,12 @@ import java.util.Optional;
 
 @Log4j2
 @Controller
+@RequiredArgsConstructor
 public class MemberController {
 
-    @Autowired
-    MemberService memberService;
-    @Autowired
-    private NaverLoginBO naverLoginBO;
+
+    private final MemberService memberService;
+    private final NaverLoginBO naverLoginBO;
 
 
     @GetMapping("/login")
@@ -123,17 +124,17 @@ public class MemberController {
 
     @GetMapping("/findEmailResult")
     public String findEmailResult() {
-        return "content/findEmailResult";
+        return null;
     }
 
-    @PostMapping("/findEmail")
-    public String findEmail_P(MemberDto member, Model model) {
-
-
-        model.addAttribute("member", memberService.findByPhone(member.getPhone()));
-
-        return "content/findEmailResult";
-    }
+//    @PostMapping("/findEmail")
+//    public String findEmail_P(MemberDto member, Model model) {
+//
+//
+//        model.addAttribute("member", memberService.findByPhone(member.getPhone()));
+//
+//        return null;
+//    }
 
 
 
