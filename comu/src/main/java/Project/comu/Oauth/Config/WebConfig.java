@@ -16,10 +16,10 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(new LoginCheckInterceptor())
                 .order(2)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/", "/login", "/address-search/**",
-                                     "/join","/rest/join" ,"/find", "/send", "/findEmailResult" ,
-                                     "/findEmail",  "/login2" , "/go", "/send/**" , "/sms/send",
-                                     "/logout","/callback" ,"/naverjoin", "/check-email/**","/check-phone/**" , "/naver",
+                .excludePathPatterns("/", "/login", "/address-search/**", "/RestJoin",
+                                     "/join","/rest/join" ,"/find", "/send", "/findIdResult" ,
+                                     "/findId",  "/login2" , "/go", "/send/**" , "/sms/send",
+                                     "/logout","/callback" ,"/naverjoin", "/check-Id/**","/check-phone/**" , "/naver",
                                      "https://nid.naver.com/oauth2.0/**","https://business.juso.go.kr/**",
                                      "/css/**","/image/**" , "/js/**", "/join/**" ,
                                      "/*.ico", "/error");

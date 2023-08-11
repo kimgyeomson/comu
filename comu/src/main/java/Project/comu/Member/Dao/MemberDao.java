@@ -22,7 +22,7 @@ public class MemberDao {
             int result = 0;
         try {
             result = jdbcTemplate.update(sql,
-                    member.getEmail(),
+                    member.getId(),
                     member.getPassword(),
                     member.getPhone(),
                     member.getName(),
@@ -38,23 +38,23 @@ public class MemberDao {
         }
     }
 
-// 이메일 찾기
-    public Optional<MemberDto> findByEmail(String email) {
-        String sql = "SELECT * FROM MEMBER WHERE EMAIL = ?";
+// 아이디 찾기
+    public Optional<MemberDto> findById(String Id) {
+        String sql = "SELECT * FROM MEMBER WHERE Id = ?";
         try {
-            MemberDto member = jdbcTemplate.queryForObject(sql, new MemberRowMapper(), email);
+            MemberDto member = jdbcTemplate.queryForObject(sql, new MemberRowMapper(), Id);
             return Optional.ofNullable(member);
         }
         catch (EmptyResultDataAccessException e) {
             return Optional.empty();
         }
     }
-// 이메일 찾기 boolean
-    public boolean Boolean_findByEmail(String email) {
-        String sql = "SELECT * FROM MEMBER WHERE EMAIL = ?";
+// 아이디 찾기 boolean
+    public boolean Boolean_findById(String Id) {
+        String sql = "SELECT * FROM MEMBER WHERE Id = ?";
         boolean result = false;
         try {
-            MemberDto answer = jdbcTemplate.queryForObject(sql, new MemberRowMapper(), email);
+            MemberDto answer = jdbcTemplate.queryForObject(sql, new MemberRowMapper(), Id);
             if(answer != null) {
                 return result;
             }
@@ -77,17 +77,31 @@ public class MemberDao {
         return result;
     }
 
-    public MemberDto findByPhone(String phone) {
+    public Optional<MemberDto> findByPhone(String phone) {
         String sql = "SELECT * FROM MEMBER WHERE PHONE = ?";
         MemberDto member = null;
         try {
             member = jdbcTemplate.queryForObject(sql, new MemberRowMapper(), phone);
+            return Optional.ofNullable(member);
 
         }
         catch (EmptyResultDataAccessException ignored) {
-            System.out.println("이메일이 없습니다.");
+            System.out.println("아이디가 없습니다.");
+            return Optional.empty();
         }
-        return member;
+    }
+
+    public boolean NaverLogin(String Id, String phone) {
+        String sql = "SELECT * FROM MEMBER WHERE Id = ? AND PHONE = ?";
+        boolean result = true;
+        try {
+            MemberDto member = jdbcTemplate.queryForObject(sql, new MemberRowMapper(), Id, phone);
+            return result;
+        }
+        catch (EmptyResultDataAccessException e) {
+            result = false;
+        }
+        return  result;
     }
 
 }

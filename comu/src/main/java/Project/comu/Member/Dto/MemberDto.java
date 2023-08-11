@@ -13,8 +13,8 @@ import java.util.Date;
 @NoArgsConstructor
 public class MemberDto {
 
-    private String id;
-    private String email;
+    private int Id_seq;
+    private String Id;
     private String password;
     private String phone;
     private String name;

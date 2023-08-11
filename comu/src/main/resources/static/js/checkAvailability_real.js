@@ -1,24 +1,24 @@
-function checkEmailAvailability(email) {
+function checkIdAvailability(Id) {
     let availabilityMessage; // Declare the variable here
 
-    if (email.length === 0) {
-        document.getElementById('emailMsg').innerText = '';
-        document.getElementById('emailMsg').style.display = 'none';
+    if (Id.length === 0) {
+        document.getElementById('IdMsg').innerText = '';
+        document.getElementById('IdMsg').style.display = 'none';
         return;
     }
 
-    axios.get('/check-email/' + email)
+    axios.get('/check-Id/' + Id)
         .then(response => {
             if (response.data.available) {
-                availabilityMessage = '사용가능한 이메일입니다.';
-                document.getElementById('emailMsg').style.color = '#1A6DFF';
+                availabilityMessage = '사용가능한 아이디입니다.';
+                document.getElementById('IdMsg').style.color = '#1A6DFF';
             } else {
-                availabilityMessage = '사용하고있는 이메일입니다.';
-                document.getElementById('emailMsg').style.color = '#ff3f3f';
+                availabilityMessage = '사용하고있는 아이디입니다.';
+                document.getElementById('IdMsg').style.color = '#ff3f3f';
             }
 
-            document.getElementById('emailMsg').innerText = availabilityMessage;
-            document.getElementById('emailMsg').style.display = 'block';
+            document.getElementById('IdMsg').innerText = availabilityMessage;
+            document.getElementById('IdMsg').style.display = 'block';
         })
         .catch(error => {
             console.error(error);

@@ -113,7 +113,7 @@ public class NaverLoginBO {
             // Now you can access individual properties directly, for example:
             MemberDto member = new MemberDto();
 
-            member.setEmail(jsonNode.get("response").get("email").asText());
+            member.setId(jsonNode.get("response").get("email").asText());
             member.setName(jsonNode.get("response").get("name").asText());
             member.setPhone(jsonNode.get("response").get("mobile").asText());
             member.setGender(jsonNode.get("response").get("gender").asText());

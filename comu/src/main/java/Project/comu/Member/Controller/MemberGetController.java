@@ -55,9 +55,9 @@ public class MemberGetController {
         return "content/find";
     }
 
-    @GetMapping("/findEmail")
-    public String findEmail() {
-        return "content/findEmail";
+    @GetMapping("/findId")
+    public String findId() {
+        return "content/findId";
     }
 
     @GetMapping("/findPassword")

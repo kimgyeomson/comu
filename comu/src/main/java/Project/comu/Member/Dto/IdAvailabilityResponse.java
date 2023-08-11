@@ -3,10 +3,10 @@ package Project.comu.Member.Dto;
 import lombok.Data;
 
 @Data
-public class EmailAvailabilityResponse {
+public class IdAvailabilityResponse {
     private boolean available;
 
-    public EmailAvailabilityResponse(boolean available) {
+    public IdAvailabilityResponse(boolean available) {
         this.available = available;
     }
 

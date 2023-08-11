@@ -31,7 +31,7 @@ public class MemberService {
     }
 
     public Optional<MemberDto> login(MemberDto member) {
-        Optional<MemberDto> user = memberDao.findByEmail(member.getEmail());
+        Optional<MemberDto> user = memberDao.findById(member.getId());
 
         if(user.isPresent()) {
              if(passwordEncoder.matches(member.getPassword(), user.get().getPassword())){
@@ -41,22 +41,28 @@ public class MemberService {
         return user;
     }
 
-    public Optional<MemberDto> findByEmail(MemberDto member) {
-        return memberDao.findByEmail(member.getEmail());
+    public Optional<MemberDto> findById(MemberDto member) {
+
+        return memberDao.findById(member.getId());
     }
 
-    public boolean Boolean_findByEmail(String email) {
-        return memberDao.Boolean_findByEmail(email);
+    public boolean Boolean_findById(String Id) {
+        return memberDao.Boolean_findById(Id);
     }
 
     public boolean Boolean_findByPhone(String phone) {
         return memberDao.Boolean_findByPhone(phone);
     }
 
-    public MemberDto findByPhone(String phone) {
+    public Optional<MemberDto> findByPhone(String phone) {
 
         return memberDao.findByPhone(phone);
     }
+
+    public boolean NaverLogin(MemberDto member) {
+        return memberDao.NaverLogin(member.getId(), member.getPhone());
+    }
+
 // String => Date 변환
     public Date convertToDate(String dateString) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");

@@ -231,21 +231,21 @@ input[type=number]::-webkit-outer-spin-button {
     height: 30px
 }
 
-.form_item.email.on::before {
+.form_item.Id.on::before {
     background-position: -310px -32px;
     background-repeat: no-repeat;
     width: 30px;
     height: 30px
 }
 
-.form_item.email.error::before {
+.form_item.Id.error::before {
     background-position: -310px -96px;
     background-repeat: no-repeat;
     width: 30px;
     height: 30px
 }
 
-.form_item.email::before {
+.form_item.Id::before {
     background-position: -310px -160px;
     background-repeat: no-repeat;
     width: 30px;
@@ -302,7 +302,7 @@ input[type=number]::-webkit-outer-spin-button {
     padding-right: 94px;
     padding:0 10px 0 45px;
 }
-.form_item.email {
+.form_item.Id {
     padding:0 10px 0 45px;
 }
 
@@ -648,9 +648,9 @@ input[type=number]::-webkit-outer-spin-button {
 .form_item.calendar.error::before,
 .form_item.calendar.on::before,
 .form_item.calendar::before,
-.form_item.email.error::before,
-.form_item.email.on::before,
-.form_item.email::before,
+.form_item.Id.error::before,
+.form_item.Id.on::before,
+.form_item.Id::before,
 .form_item.lock.error::before,
 .form_item.lock.on::before,
 .form_item.lock::before,

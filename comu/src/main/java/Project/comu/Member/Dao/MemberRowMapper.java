@@ -11,8 +11,8 @@ public class MemberRowMapper implements RowMapper<MemberDto> {
     public MemberDto mapRow(ResultSet rs, int rowNum) throws SQLException {
 
         return MemberDto.builder()
-                .id(rs.getString("ID"))
-                .email(rs.getString("EMAIL"))
+                .Id_seq(rs.getInt("ID_SEQ"))
+                .Id(rs.getString("ID"))
                 .password(rs.getString("PASSWORD"))
                 .phone(rs.getString("phone"))
                 .name(rs.getString("NAME"))

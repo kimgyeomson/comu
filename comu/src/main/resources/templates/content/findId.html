@@ -6,7 +6,7 @@
     <title>네이버 : 회원가입</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/join.css}">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" th:src="@{/js/findEmail.js}"></script>
+    <script type="text/javascript" th:src="@{/js/findId.js}"></script>
 
 </head>
 
@@ -16,7 +16,7 @@
         <h1 class="logo_naver">
         </h1>
         <div class="content">
-            <form id="join_form" action="/findEmail" method="POST" class="form">
+            <form id="join_form" action="/findId" method="POST" class="form">
                 <div class="form_content">
                     <div class="form_section">
                         <div class="form_list" id="phoneFormList">
@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="error_text item_style" id="emailMsg" style="display: none"></div>
+                        <div class="error_text item_style" id="IdMsg" style="display: none"></div>
                         <div class="error_text item_style" id="pswd1Msg" style="display: none"></div>
                         <div class="error_text item_style" id="phoneMsg" style="display: none"></div>
 

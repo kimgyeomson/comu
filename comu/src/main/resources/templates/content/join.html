@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/join.css}">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" th:src="@{/js/checkAvailability.js}"></script>
+    <script type="text/javascript" th:src="@{/js/join.js}"></script>
 
     <script>
         function road() {
@@ -25,9 +26,9 @@
                 <div class="form_content">
                     <div class="form_section">
                         <div class="form_list">
-                            <div class="form_item email" id="divEmail">
-                                <input type="email" id="email" name="email" placeholder="아이디"
-                                       class="input" maxlength="100" onblur="checkEmailAvailability(this.value)" required/>
+                            <div class="form_item Id" id="divId">
+                                <input type="text" id="Id" name="Id" placeholder="아이디"
+                                       class="input" maxlength="100" onblur="checkIdAvailability(this.value)" required/>
                             </div>
                             <div class="form_item lock password" id="divPasswd">
                                 <input type="password" id="password" name="password" placeholder="비밀번호" class="input"
@@ -46,7 +47,7 @@
                             </div>
                             <div style="padding-right: 10px; display: none;" class="form_item phone" id="PhoneResult">
                                 <input type="number" id="random" name="random" placeholder="인증번호 6자리를 입력하세요." class="input"
-                                       maxlength="6" required/>
+                                       maxlength="6" />
                                 <div style="padding: 0px;" class="btn_submit_wrap" >
                                     <button id="ResultButton" style="font-size: 15px; padding: 5px; width: 82px;" type="button" class="btn_submit" onclick="randomResult()">인증</button>
                                 </div>
@@ -56,7 +57,7 @@
                             <input hidden="hidden" type="number" id="randomNumber" value=""/>
 
                         </div>
-                        <div class="error_text item_style" id="emailMsg" style="display: none"></div>
+                        <div class="error_text item_style" id="IdMsg" style="display: none"></div>
                         <div class="error_text item_style" id="pswd1Msg" style="display: none"></div>
                         <div class="error_text item_style" id="phoneMsg" style="display: none"></div>
                         <div class="form_list">
@@ -103,7 +104,7 @@
                     </div>
 
                     <div class="btn_submit_wrap" id="divBtnJoin">
-                            <button type="submit" class="btn_submit" id="btnJoin" disabled="true">가입하기</button>
+                            <button type="submit" class="btn_submit" id="btnJoin" >가입하기</button>
                     </div>
                 </div>
             </form>
@@ -124,5 +125,4 @@
 }
 </script>
 </body>
-<script type="text/javascript" th:src="@{/js/join.js}"></script>
 

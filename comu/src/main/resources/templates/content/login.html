@@ -12,6 +12,9 @@
 
         }
     </style>
+  <script th:if="${DupPhone == 1}">
+    alert("가입된 전화번호가 있습니다.");
+  </script>
 </head>
 
 <body>
@@ -41,7 +44,7 @@
                           <span class="blind">아이디</span>
                         </span>
                       </div>
-                      <input type="text" id="id" name="email" placeholder="아이디" title="아이디" class="input_text"
+                      <input type="text" id="id" name="Id" placeholder="아이디" title="아이디" class="input_text"
                         maxlength="41" value="">
                       <span role="button" class="btn_delete" id="id_clear" style="display: none;">
                         <span class="icon_delete">
@@ -105,7 +108,7 @@
         </div>
         <ul class="find_wrap" id="find_wrap">
 
-          <li><a href="/findEmail"
+          <li><a href="/findId"
               class="find_text">아이디 찾기</a></li>
           <li><a href="/findPassword"
               class="find_text">비밀번호 찾기</a></li>
