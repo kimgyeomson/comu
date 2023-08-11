@@ -27,19 +27,19 @@
                         <div class="form_list">
                             <div class="form_item email" id="divEmail">
                                 <input type="email" id="email" name="email" placeholder="아이디"
-                                       class="input" maxlength="100" onblur="checkEmailAvailability(this.value)"/>
+                                       class="input" maxlength="100" onblur="checkEmailAvailability(this.value)" th:value="${user.email}"/>
                             </div>
-                            <div class="form_item lock password" id="divPasswd">
-                                <input type="password" id="password" name="password" placeholder="비밀번호" class="input"
-                                       maxlength="20" onblur="checkPasswordAvailability(this.value, document.getElementById('ConfirmPassword').value)"/>
-                            </div>
-                            <div class="form_item lock password" id="divConfirm">
-                                <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="비밀번호확인" class="input"
-                                       maxlength="20" onblur="checkPasswordAvailability(document.getElementById('password').value, this.value)"/>
-                            </div>
+<!--                            <div class="form_item lock password" id="divPasswd">-->
+<!--                                <input type="password" id="password" name="password" placeholder="비밀번호" class="input"-->
+<!--                                       maxlength="20" onblur="checkPasswordAvailability(this.value, document.getElementById('ConfirmPassword').value)"/>-->
+<!--                            </div>-->
+<!--                            <div class="form_item lock password" id="divConfirm">-->
+<!--                                <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="비밀번호확인" class="input"-->
+<!--                                       maxlength="20" onblur="checkPasswordAvailability(document.getElementById('password').value, this.value)"/>-->
+<!--                            </div>-->
                             <div class="form_item phone" id="divPhoneNo">
                                 <input type="tel" id="phone" name="phone" placeholder="휴대전화번호" class="input"
-                                       maxlength="13"  onblur="checkPhoneAvailability(this.value)" oninput="hypenTel(this)"/>
+                                       maxlength="13"  onblur="checkPhoneAvailability(this.value)" oninput="hypenTel(this)" th:value="${user.phone}"/>
                             </div>
 
                         </div>
@@ -49,11 +49,11 @@
                         <div class="form_list">
                             <div class="form_item user" id="divName">
                                 <input type="text" id="name" name="name" placeholder="이름" class="input"
-                                       maxlength="40" />
+                                       maxlength="40" th:value="${user.name}"/>
                             </div>
                             <div class="form_item calendar" id="divBirthday">
                                 <input type="text" id="birthday" name="birthday" placeholder="생년월일 8자리 예) 20230731" class="input"
-                                       maxlength="10" onblur="checkBirthdayAvailability(this.value)" oninput="periodBirth(this)"/>
+                                       maxlength="10" onblur="checkBirthdayAvailability(this.value)" oninput="periodBirth(this)" th:value="${user.birthday}"/>
                             </div>
                             <div class="form_item telecom" id="divTelecom">
                                 <button style="background-color: transparent; border: none; outline: none;" type="button" onclick="road()" id="btn_telecom" class="btn_telecom" >
@@ -64,12 +64,12 @@
                                 <ul class="adult_list" id="listIdentityGender">
                                     <li class="radio_item">
                                         <input type="radio" id="identityGender1" name="gender" value="M"
-                                               class="blind">
+                                               class="blind" th:checked="${user.gender == 'M'}">
                                         <label for="identityGender1">남자</label>
                                     </li>
                                     <li class="radio_item">
                                         <input type="radio" id="identityGender2" name="gender" value="F"
-                                               class="blind">
+                                               class="blind" th:checked="${user.gender == 'F'}">
                                         <label for="identityGender2">여자</label>
                                     </li>
                                 </ul>
