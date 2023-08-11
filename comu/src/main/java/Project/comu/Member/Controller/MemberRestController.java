@@ -16,7 +16,7 @@ public class MemberRestController {
     private final MemberService memberService;
 
     //  회원가입 처리
-    @PostMapping("/findEmail")
+    @PostMapping("/RestJoin")
     public int join1(MemberDto member) throws ParseException {
         return memberService.join(member);
     }
