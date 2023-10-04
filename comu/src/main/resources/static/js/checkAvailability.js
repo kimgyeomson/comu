@@ -10,6 +10,7 @@ function checkIdAvailability(Id) {
     let IdValue = Id.value;
     let hasChars = /[^\w\d]/.test(Id);
 
+
     if (!hasChars) {
         axios.get('/check-Id/' + Id)
             .then(response => {
